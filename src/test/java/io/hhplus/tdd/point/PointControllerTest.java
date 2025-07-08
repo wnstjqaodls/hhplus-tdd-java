@@ -5,9 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import java.awt.*;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -36,9 +34,9 @@ class PointControllerTest {
 
         //when
         // 실제 테스트 로직이 들어갈 부분
-        
+
         //then
-        assertThat(userPoint).isNotNull(); //
+        assertThat(userPoint).isNotNull();
         assertThat(userPoint.id()).isEqualTo(userId);
         return userPoint;
     }
