@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 /**
  * 해당 Table 클래스는 변경하지 않고 공개된 API 만을 사용해 데이터를 제어합니다.
@@ -26,7 +25,7 @@ public class PointHistoryTable {
     }
 
     public List<PointHistory> selectAllByUserId(long userId) {
-        return table.stream().filter(pointHistory -> pointHistory.getUserId() == userId).collect(Collectors.toList());
+        return table.stream().filter(pointHistory -> pointHistory.userId() == userId).toList();
     }
 
     private void throttle(long millis) {
