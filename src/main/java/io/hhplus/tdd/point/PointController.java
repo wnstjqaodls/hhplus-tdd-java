@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 // TODO: @Controller vs @RestController 차이점 학습함
+// @Controller: 뷰를 반환 (MVC 패턴)
 // @RestController: @Controller + @ResponseBody, JSON 형태로 데이터 반환 (REST API)
+// 결론: REST API를 만들 때는 @RestController 사용!
 @RestController
 @RequestMapping("/point")
 public class PointController {
@@ -35,7 +37,7 @@ public class PointController {
         
         try {
             UserPoint result = pointService.getPointById(id);
-            log.info("포인트 조회 성공: userId={}, point={}", id, result.point());
+            log.info("포인트 조회 성공: userId={}, point={}", id, result.getPoint());
             return result;
         } catch (Exception e) {
             log.error("포인트 조회 실패: userId={}, error={}", id, e.getMessage());
@@ -67,6 +69,7 @@ public class PointController {
     /**
      * 특정 유저의 포인트를 충전하는 기능
      * TODO: 요청 DTO 클래스 만들어서 validation 추가 (@Valid, @NotNull 등)
+     * TODO: 비동기 처리 고려 (@Async)
      */
     @PatchMapping("{id}/charge")
     public UserPoint charge(
@@ -78,7 +81,7 @@ public class PointController {
         try {
             UserPoint result = pointService.chargePoint(id, amount);
             log.info("포인트 충전 성공: userId={}, beforePoint={}, afterPoint={}", 
-                    id, result.point() - amount, result.point());
+                    id, result.getPoint() - amount, result.getPoint());
             return result;
         } catch (Exception e) {
             log.error("포인트 충전 실패: userId={}, amount={}, error={}", id, amount, e.getMessage());
@@ -89,6 +92,7 @@ public class PointController {
     /**
      * 특정 유저의 포인트를 사용하는 기능
      * TODO: 사용 목적, 상품 정보 등 추가 정보 받아야 할 듯
+     * TODO: 트랜잭션 처리 강화 (@Transactional)
      */
     @PatchMapping("{id}/use")
     public UserPoint use(
@@ -100,12 +104,11 @@ public class PointController {
         try {
             UserPoint result = pointService.usePoint(id, amount);
             log.info("포인트 사용 성공: userId={}, beforePoint={}, afterPoint={}", 
-                    id, result.point() + amount, result.point());
+                    id, result.getPoint() + amount, result.getPoint());
             return result;
         } catch (Exception e) {
             log.error("포인트 사용 실패: userId={}, amount={}, error={}", id, amount, e.getMessage());
             throw e;
         }
     }
-
 }

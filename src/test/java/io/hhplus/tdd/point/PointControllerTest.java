@@ -54,8 +54,8 @@ class PointControllerTest {
         //then
         // TODO: assertEquals vs assertThat 중에 고민했는데, AssertJ가 더 읽기 쉬워서 선택
         assertThat(result).isNotNull();
-        assertThat(result.id()).isEqualTo(userId);
-        assertThat(result.point()).isEqualTo(1000L);
+        assertThat(result.getId()).isEqualTo(userId);
+        assertThat(result.getPoint()).isEqualTo(1000L);
         
         // TODO: 로그도 확인해야 할까? 일단 보류
         log.info("포인트 조회 테스트 완료: {}", result);
@@ -81,8 +81,8 @@ class PointControllerTest {
         assertThat(result).isNotEmpty();
         
         // TODO: 더 상세한 검증을 해야 할까? 각 히스토리의 내용도 확인?
-        assertThat(result.get(0).type()).isEqualTo(TransactionType.CHARGE);
-        assertThat(result.get(1).type()).isEqualTo(TransactionType.USE);
+        assertThat(result.get(0).getType()).isEqualTo(TransactionType.CHARGE);
+        assertThat(result.get(1).getType()).isEqualTo(TransactionType.USE);
     }
 
     @Test
@@ -99,8 +99,8 @@ class PointControllerTest {
 
         //then
         assertThat(result).isNotNull();
-        assertThat(result.id()).isEqualTo(userId);
-        assertThat(result.point()).isEqualTo(amount);
+        assertThat(result.getId()).isEqualTo(userId);
+        assertThat(result.getPoint()).isEqualTo(amount);
         
         // TODO: 충전 후 실제로 포인트가 증가했는지 확인하는 테스트도 필요할 듯
     }
@@ -119,8 +119,8 @@ class PointControllerTest {
 
         //then
         assertThat(result).isNotNull();
-        assertThat(result.id()).isEqualTo(userId);
-        assertThat(result.point()).isEqualTo(500L);
+        assertThat(result.getId()).isEqualTo(userId);
+        assertThat(result.getPoint()).isEqualTo(500L);
     }
 
     // ==================== 정책별 테스트 ====================
@@ -267,10 +267,10 @@ class PointControllerTest {
     }
 
     @Test
-    @DisplayName("null 사용자 ID로 조회 시 예외 발생")
-    public void null_사용자ID_조회시_예외발생() {
+    @DisplayName("0 사용자 ID로 조회 시 예외 발생")
+    public void 영_사용자ID_조회시_예외발생() {
         //given
-        Long userId = null;
+        Long userId = 0L;
         when(pointService.getPointById(userId))
             .thenThrow(new IllegalArgumentException("올바른 사용자 ID를 입력해주세요."));
 
@@ -310,7 +310,7 @@ class PointControllerTest {
 
         //then
         assertThat(result).isNotNull();
-        assertThat(result.point()).isEqualTo(amount);
+        assertThat(result.getPoint()).isEqualTo(amount);
         
         // TODO: 경계값 테스트는 중요한데, 더 많은 케이스가 필요할 것 같음
         // 예: 999,999원, 1,000,001원 등
@@ -345,7 +345,18 @@ class PointControllerTest {
 
         //then
         assertThat(result).isNotNull();
-        // TODO: 49,999원은 정상 처리되어야 하는데, 실제로는 어떻게 될지?
+        // TODO: 49,999원은 정상 처리되어야 하는데, 실제로는 어떻게 될까?
     }
 
+    /*
+     * TODO: 추가로 테스트하면 좋을 것들
+     * 1. 동시성 테스트 (여러 스레드가 동시에 충전/사용)
+     * 2. 성능 테스트 (대용량 데이터에서의 응답 시간)
+     * 3. 통합 테스트 (실제 DB와 연동)
+     * 4. 파라미터화된 테스트 (JUnit5의 @ParameterizedTest)
+     * 5. 테스트 데이터 빌더 패턴 적용
+     * 6. 커스텀 매처 생성 (AssertJ 확장)
+     * 7. 테스트 그룹핑 (@Nested 클래스 활용)
+     * 8. 테스트 시나리오 기반 테스트
+     */
 }

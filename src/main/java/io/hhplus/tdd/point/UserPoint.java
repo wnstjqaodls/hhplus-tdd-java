@@ -1,13 +1,14 @@
 package io.hhplus.tdd.point;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-@Builder
-public record UserPoint(
-        long id,
-        long point,
-        long updateMillis
-) {
+@Getter
+@AllArgsConstructor
+public class UserPoint {
+    private final long id;
+    private final long point;
+    private final long updateMillis;
 
     public static UserPoint empty(long id) {
         return new UserPoint(id, 0, System.currentTimeMillis());
