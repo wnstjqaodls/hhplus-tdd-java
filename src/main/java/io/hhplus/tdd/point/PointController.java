@@ -37,7 +37,7 @@ public class PointController {
         
         try {
             UserPoint result = pointService.getPointById(id);
-            log.info("포인트 조회 성공: userId={}, point={}", id, result.getPoint());
+            log.info("포인트 조회 성공: userId={}, point={}", id, result.point());
             return result;
         } catch (Exception e) {
             log.error("포인트 조회 실패: userId={}, error={}", id, e.getMessage());
@@ -81,7 +81,7 @@ public class PointController {
         try {
             UserPoint result = pointService.chargePoint(id, amount);
             log.info("포인트 충전 성공: userId={}, beforePoint={}, afterPoint={}", 
-                    id, result.getPoint() - amount, result.getPoint());
+                    id, result.point() - amount, result.point());
             return result;
         } catch (Exception e) {
             log.error("포인트 충전 실패: userId={}, amount={}, error={}", id, amount, e.getMessage());
@@ -104,11 +104,37 @@ public class PointController {
         try {
             UserPoint result = pointService.usePoint(id, amount);
             log.info("포인트 사용 성공: userId={}, beforePoint={}, afterPoint={}", 
-                    id, result.getPoint() + amount, result.getPoint());
+                    id, result.point() + amount, result.point());
             return result;
         } catch (Exception e) {
             log.error("포인트 사용 실패: userId={}, amount={}, error={}", id, amount, e.getMessage());
             throw e;
         }
     }
+
+    /*
+     * TODO: 추가로 구현하면 좋을 API들
+     * 1. 포인트 환불 API
+     * 2. 포인트 이체 API (사용자간 포인트 전송)
+     * 3. 포인트 만료 예정 조회 API
+     * 4. 포인트 통계 API (일별, 월별 사용/충전 통계)
+     * 5. 관리자용 포인트 강제 조정 API
+     * 6. 포인트 이벤트 적용 API
+     * 7. 포인트 소멸 예정 알림 API
+     * 
+     * TODO: 보안 관련 고려사항
+     * 1. 사용자 인증/인가 처리 (JWT, OAuth2)
+     * 2. Rate Limiting (요청 제한)
+     * 3. 입력값 검증 강화
+     * 4. SQL Injection 방지
+     * 5. CORS 설정
+     * 6. HTTPS 강제
+     * 
+     * TODO: 운영 관련 고려사항
+     * 1. 헬스체크 API
+     * 2. 메트릭 수집 (Micrometer)
+     * 3. 로그 레벨 조정
+     * 4. 외부 API 연동 시 회로 차단기 패턴
+     * 5. 데이터베이스 연결 풀 모니터링
+     */
 }

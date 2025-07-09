@@ -74,7 +74,7 @@ public class PointService {
         // 최대 잔고 제한 정책 추가 (예: 최대 500만원)
         // TODO: 이 정책은 정책서에 없었는데 추가해야 할까? 일단 추가함
         long maxBalance = 5_000_000L;
-        if (currentPoint.getPoint() + amount > maxBalance) {
+        if (currentPoint.point() + amount > maxBalance) {
             throw new IllegalArgumentException("최대 보유 가능한 포인트는 " + maxBalance + "원입니다.");
         }
 
@@ -85,7 +85,7 @@ public class PointService {
         }
 
         // 새로운 포인트 계산 후 업데이트
-        UserPoint updatedPoint = userPointTable.insertOrUpdate(userId, currentPoint.getPoint() + amount);
+        UserPoint updatedPoint = userPointTable.insertOrUpdate(userId, currentPoint.point() + amount);
         
         // 충전 내역 저장
         pointHistoryTable.insert(userId, amount, TransactionType.CHARGE, System.currentTimeMillis());
@@ -117,8 +117,8 @@ public class PointService {
         UserPoint currentPoint = userPointTable.selectById(userId);
         
         // 잔액 부족 확인
-        if (currentPoint.getPoint() < amount) {
-            throw new IllegalArgumentException("포인트 잔액이 부족합니다. 현재 잔액: " + currentPoint.getPoint() + "원");
+        if (currentPoint.point() < amount) {
+            throw new IllegalArgumentException("포인트 잔액이 부족합니다. 현재 잔액: " + currentPoint.point() + "원");
         }
 
         // PLC_PNT_005: 최초 사용 시 본인 인증
@@ -137,7 +137,7 @@ public class PointService {
         }
 
         // 새로운 포인트 계산 후 업데이트
-        UserPoint updatedPoint = userPointTable.insertOrUpdate(userId, currentPoint.getPoint() - amount);
+        UserPoint updatedPoint = userPointTable.insertOrUpdate(userId, currentPoint.point() - amount);
         
         // 사용 내역 저장
         pointHistoryTable.insert(userId, amount, TransactionType.USE, System.currentTimeMillis());
@@ -159,9 +159,9 @@ public class PointService {
         long currentTime = System.currentTimeMillis();
         
         for (PointHistory history : recentCharges) {
-            if (history.getType() == TransactionType.CHARGE 
-                && history.getAmount() == amount 
-                && (currentTime - history.getUpdateMillis()) < 10_000) { // 10초
+            if (history.type() == TransactionType.CHARGE 
+                && history.amount() == amount 
+                && (currentTime - history.updateMillis()) < 10_000) { // 10초
                 return true;
             }
         }
@@ -178,6 +178,6 @@ public class PointService {
         
         // 사용 내역이 없으면 최초 사용자
         return histories.stream()
-                .noneMatch(history -> history.getType() == TransactionType.USE);
+                .noneMatch(history -> history.type() == TransactionType.USE);
     }
 }

@@ -1,11 +1,7 @@
 package io.hhplus.tdd;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
-@Getter
-@AllArgsConstructor
-public class ErrorResponse {
-    private final String code;
-    private final String message;
+public record ErrorResponse(
+        String code,
+        String message
+) {
 }
