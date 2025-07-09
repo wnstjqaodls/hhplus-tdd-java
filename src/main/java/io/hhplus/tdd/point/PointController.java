@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 // TODO: @Controller vs @RestController 차이점 학습함
-// @Controller: 뷰를 반환 (MVC 패턴)
 // @RestController: @Controller + @ResponseBody, JSON 형태로 데이터 반환 (REST API)
-// 결론: REST API를 만들 때는 @RestController 사용!
 @RestController
 @RequestMapping("/point")
 public class PointController {
@@ -69,7 +67,6 @@ public class PointController {
     /**
      * 특정 유저의 포인트를 충전하는 기능
      * TODO: 요청 DTO 클래스 만들어서 validation 추가 (@Valid, @NotNull 등)
-     * TODO: 비동기 처리 고려 (@Async)
      */
     @PatchMapping("{id}/charge")
     public UserPoint charge(
@@ -92,7 +89,6 @@ public class PointController {
     /**
      * 특정 유저의 포인트를 사용하는 기능
      * TODO: 사용 목적, 상품 정보 등 추가 정보 받아야 할 듯
-     * TODO: 트랜잭션 처리 강화 (@Transactional)
      */
     @PatchMapping("{id}/use")
     public UserPoint use(
@@ -112,29 +108,4 @@ public class PointController {
         }
     }
 
-    /*
-     * TODO: 추가로 구현하면 좋을 API들
-     * 1. 포인트 환불 API
-     * 2. 포인트 이체 API (사용자간 포인트 전송)
-     * 3. 포인트 만료 예정 조회 API
-     * 4. 포인트 통계 API (일별, 월별 사용/충전 통계)
-     * 5. 관리자용 포인트 강제 조정 API
-     * 6. 포인트 이벤트 적용 API
-     * 7. 포인트 소멸 예정 알림 API
-     * 
-     * TODO: 보안 관련 고려사항
-     * 1. 사용자 인증/인가 처리 (JWT, OAuth2)
-     * 2. Rate Limiting (요청 제한)
-     * 3. 입력값 검증 강화
-     * 4. SQL Injection 방지
-     * 5. CORS 설정
-     * 6. HTTPS 강제
-     * 
-     * TODO: 운영 관련 고려사항
-     * 1. 헬스체크 API
-     * 2. 메트릭 수집 (Micrometer)
-     * 3. 로그 레벨 조정
-     * 4. 외부 API 연동 시 회로 차단기 패턴
-     * 5. 데이터베이스 연결 풀 모니터링
-     */
 }
