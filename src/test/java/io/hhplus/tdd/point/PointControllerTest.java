@@ -6,12 +6,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -30,12 +33,24 @@ class PointControllerTest {
     @Mock
     private PointService pointService;
 
+    //@InjectMocks // inject Mocks 는 동일클래스안에 @Mock 또는 @spy 로 선언된 객체를 주입해주는데
+    //생성자,세터,필드 순으로 가능한 주입점을 찾아 리플렉션으로 삽입해준다. >
+    //@Autowired 주입 불가능 : @ExtendWith 만 사용시, 컨테이너가 없기때문에 주입이 되지않음!
     private PointController pointController;
+
+    // 테스트id 생성용
+    private static final Random random = new Random();
+    
+    // 테스트에서 공통으로 사용할 랜덤 userId
+    private Long userId;
 
     @BeforeEach
     void setUp() {
-        // TODO: 처음에는 @InjectMocks를 쓰려고 했는데, 직접 생성자 호출이 더 명확함
+        // XXX : 처음에는 @InjectMocks를 쓰려고 했는데, 직접 생성자 호출방식으로 변경함
+        // XXX : 이유 :  InjectMocks 보다 명시적이고, 에러시 컴파일타임에 에러를 확인가능함,
+        // XXX : 이유2 : 현재 해당 컨트롤러객체의 의존성이 단순함 postService 한개뿐이어서 리플렉션을 사용하는 injectMocks 보다 가벼움
         pointController = new PointController(pointService);
+        userId = random.nextLong(1_000); // 0-999 중 랜덤값을 인스턴스 필드에 할당
     }
 
     // ==================== 기본 기능 테스트 ====================
@@ -43,7 +58,7 @@ class PointControllerTest {
     @DisplayName("특정유저 포인트 충전 이용내역 조회_성공")
     public void Point_ProductionOfCertainUsers() {
         //given
-        Long userId = 1L;
+        // userId는 @BeforeEach에서 랜덤으로 생성됨 (더 이상 선언할 필요 없음)
         List<PointHistory> mockHistories = List.of(
             new PointHistory(1L, userId, 1000L, TransactionType.CHARGE, System.currentTimeMillis()),
             new PointHistory(2L, userId, 500L, TransactionType.USE, System.currentTimeMillis())
@@ -59,15 +74,15 @@ class PointControllerTest {
         assertThat(result).isNotEmpty();
 
         // TODO: 더 상세한 검증을 해야 할까? 각 히스토리의 내용도 확인?
-        assertThat(result.get(0).getType()).isEqualTo(TransactionType.CHARGE);
-        assertThat(result.get(1).getType()).isEqualTo(TransactionType.USE);
+        assertThat(result.get(0).type()).isEqualTo(TransactionType.CHARGE);
+        assertThat(result.get(1).type()).isEqualTo(TransactionType.USE);
     }
 
     @Test
     @DisplayName("특정유저 포인트 조회_성공")
     public void searchOfThePointOfASpecificUser() {
         //given
-        Long userId = 1L;
+        // userId는 @BeforeEach에서 랜덤으로 생성됨
         UserPoint mockUserPoint = new UserPoint(userId, 1000L, System.currentTimeMillis());
         when(pointService.getPointById(userId)).thenReturn(mockUserPoint);
 
@@ -77,8 +92,8 @@ class PointControllerTest {
         //then
         // TODO: assertEquals vs assertThat 중에 고민했는데, AssertJ가 더 읽기 쉬워서 선택
         assertThat(result).isNotNull();
-        assertThat(result.getId()).isEqualTo(userId);
-        assertThat(result.getPoint()).isEqualTo(1000L);
+        assertThat(result.id()).isEqualTo(userId);
+        assertThat(result.id()).isEqualTo(1000L);
         
         // TODO: 로그도 확인해야 할까? 일단 보류
         log.info("포인트 조회 테스트 완료: {}", result);
@@ -90,7 +105,7 @@ class PointControllerTest {
     @DisplayName("특정유저의_포인트를_충전한다")
     public void completeThePointOfASpecificUser() {
         //given
-        Long userId = 1L;
+        // userId는 @BeforeEach에서 랜덤으로 생성됨  
         Long amount = 1000L;
         UserPoint mockUserPoint = new UserPoint(userId, amount, System.currentTimeMillis());
         when(pointService.chargePoint(userId, amount)).thenReturn(mockUserPoint);
@@ -100,8 +115,8 @@ class PointControllerTest {
 
         //then
         assertThat(result).isNotNull();
-        assertThat(result.getId()).isEqualTo(userId);
-        assertThat(result.getPoint()).isEqualTo(amount);
+        assertThat(result.id()).isEqualTo(userId);
+        assertThat(result.id()).isEqualTo(amount);
         
         // TODO: 충전 후 실제로 포인트가 증가했는지 확인하는 테스트도 필요할 듯
     }
@@ -120,8 +135,8 @@ class PointControllerTest {
 
         //then
         assertThat(result).isNotNull();
-        assertThat(result.getId()).isEqualTo(userId);
-        assertThat(result.getPoint()).isEqualTo(500L);
+        assertThat(result.id()).isEqualTo(userId);
+        assertThat(result.point()).isEqualTo(500L);
     }
 
     // ==================== 정책별 테스트 ====================
