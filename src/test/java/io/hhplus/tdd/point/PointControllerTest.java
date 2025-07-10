@@ -1,5 +1,6 @@
 package io.hhplus.tdd.point;
 
+import io.hhplus.tdd.helper.TestLogger;
 import io.hhplus.tdd.point.service.PointService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -21,7 +22,7 @@ import static org.mockito.Mockito.when;
 // @ExtendWith(MockitoExtension.class): 단위 테스트용, Mock 객체만 사용 (가볍고 빠름)
 // @ExtendWith : Junit4 에서 @RunWith로 사용되던거임, @ExtendWith는 메인으로 실행될 Class를 지정할수있음
 // 결론: 단위 테스트에서는 MockitoExtension을 사용하는 게 좋음!
-@ExtendWith(MockitoExtension.class)
+@ExtendWith({MockitoExtension.class, TestLogger.class})
 class PointControllerTest {
 
     private static final Logger log = LoggerFactory.getLogger(PointControllerTest.class);
