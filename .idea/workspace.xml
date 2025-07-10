@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff8865d3-b85f-4079-9cf0-0bcfcb9034af" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/point/PointController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/hhplus/tdd/point/PointController.java" afterDir="false" />
+    <list default="true" id="ff8865d3-b85f-4079-9cf0-0bcfcb9034af" name="Changes" comment=":memo: 주석추가">
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/point/TestDataResolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/point/TestFixture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/helper/TestLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/helper/TestLogger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/point/PointControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/hhplus/tdd/point/PointControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,43 +96,53 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2do7wYRUvUCj6edZEX3807ez5Vy" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build hhplus-tdd-jvm.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PointControllerTest.특정유저의_포인트_충전이용내역_조회_성공.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PointControllerTest.특정유저의_포인트를_조회한다.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PointControllerTest.특정유저의_포인트를_충전한다.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.TddApplication.executor&quot;: &quot;Run&quot;,
-    &quot;aspect.path.notification.shown&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/dev/WORKSPACE/hhplus-tdd-jvm-java/hhplus-tdd-java/settings.gradle.kts&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.3218391&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Gradle.Build hhplus-tdd-jvm.executor": "Run",
+    "Gradle.PointControllerTest.Point_ProductionOfCertainUsers.executor": "Run",
+    "Gradle.PointControllerTest.charging_does_inAdditionOfExceptions.executor": "Run",
+    "Gradle.PointControllerTest.completeThePointOfASpecificUser.executor": "Run",
+    "Gradle.PointControllerTest.neglection_hill_broading_test.executor": "Run",
+    "Gradle.PointControllerTest.searchOfThePointOfASpecificUser.executor": "Run",
+    "Gradle.PointControllerTest.use_remain_ifOverExpansion.executor": "Run",
+    "Gradle.PointControllerTest.특정유저의_포인트_충전이용내역_조회_성공.executor": "Run",
+    "Gradle.PointControllerTest.특정유저의_포인트를_조회한다.executor": "Run",
+    "Gradle.PointControllerTest.특정유저의_포인트를_충전한다.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.TddApplication.executor": "Run",
+    "aspect.path.notification.shown": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "dev",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/dev/WORKSPACE/hhplus-tdd-jvm-java/hhplus-tdd-java/settings.gradle.kts",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "모듈",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.3218391",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
@@ -143,31 +157,7 @@
       <recent name="io.hhplus.tdd.point" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.PointControllerTest.특정유저의_포인트_충전이용내역_조회_성공">
-    <configuration name="PointControllerTest.특정유저의_포인트를_조회한다" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;io.hhplus.tdd.point.PointControllerTest.특정유저의_포인트를_조회한다&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.PointControllerTest.neglection_hill_broading_test">
     <configuration name="PointControllerTest.특정유저의_포인트를_충전한다" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -192,7 +182,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="PointControllerTest.특정유저의_포인트_충전이용내역_조회_성공" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PointControllerTest.charging_does_inAdditionOfExceptions" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -205,7 +195,103 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;io.hhplus.tdd.point.PointControllerTest.특정유저의_포인트_충전이용내역_조회_성공&quot;" />
+            <option value="&quot;io.hhplus.tdd.point.PointControllerTest.charging_does_inAdditionOfExceptions&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PointControllerTest.completeThePointOfASpecificUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.point.PointControllerTest.completeThePointOfASpecificUser&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PointControllerTest.neglection_hill_broading_test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.point.PointControllerTest.neglection_hill_broading_test&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PointControllerTest.searchOfThePointOfASpecificUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.point.PointControllerTest.searchOfThePointOfASpecificUser&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PointControllerTest.use_remain_ifOverExpansion" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.hhplus.tdd.point.PointControllerTest.use_remain_ifOverExpansion&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -225,8 +311,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.PointControllerTest.특정유저의_포인트_충전이용내역_조회_성공" />
-        <item itemvalue="Gradle.PointControllerTest.특정유저의_포인트를_조회한다" />
+        <item itemvalue="Gradle.PointControllerTest.neglection_hill_broading_test" />
+        <item itemvalue="Gradle.PointControllerTest.use_remain_ifOverExpansion" />
+        <item itemvalue="Gradle.PointControllerTest.charging_does_inAdditionOfExceptions" />
+        <item itemvalue="Gradle.PointControllerTest.completeThePointOfASpecificUser" />
+        <item itemvalue="Gradle.PointControllerTest.searchOfThePointOfASpecificUser" />
       </list>
     </recent_temporary>
   </component>
@@ -257,7 +346,73 @@
       <workItem from="1752140924655" duration="29000" />
       <workItem from="1752147863235" duration="2318000" />
       <workItem from="1752150216511" duration="7335000" />
+      <workItem from="1752158101660" duration="7669000" />
     </task>
+    <task id="LOCAL-00001" summary=":wrench: 설정파일 복구">
+      <option name="closed" value="true" />
+      <created>1752158258355</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1752158258355</updated>
+    </task>
+    <task id="LOCAL-00002" summary=":wrench: 설정파일 추가">
+      <option name="closed" value="true" />
+      <created>1752158290701</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1752158290701</updated>
+    </task>
+    <task id="LOCAL-00003" summary=":seeding: PR 템플릿 복원 파일추가">
+      <option name="closed" value="true" />
+      <created>1752158401853</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1752158401853</updated>
+    </task>
+    <task id="LOCAL-00004" summary=":test_tube: 컨트롤러 테스트 코드 추가">
+      <option name="closed" value="true" />
+      <created>1752158467889</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1752158467889</updated>
+    </task>
+    <task id="LOCAL-00005" summary=":test_tube: 테스트 코드에 로깅을위한 Watcher 추가">
+      <option name="closed" value="true" />
+      <created>1752160284736</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1752160284736</updated>
+    </task>
+    <task id="LOCAL-00006" summary=":test_tube: 테스트 코드 Watcher 어노테이션 사용">
+      <option name="closed" value="true" />
+      <created>1752160353574</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1752160353574</updated>
+    </task>
+    <task id="LOCAL-00007" summary=":fire: Revert 시 삭제된 파일 복구">
+      <option name="closed" value="true" />
+      <created>1752160713649</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1752160713649</updated>
+    </task>
+    <task id="LOCAL-00008" summary=":memo: 주석추가">
+      <option name="closed" value="true" />
+      <created>1752165974911</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1752165974911</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,16 +441,18 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/io/hhplus/tdd/point/PointControllerTest.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value=":wrench: 설정파일 복구" />
+    <MESSAGE value=":wrench: 설정파일 복구2" />
+    <MESSAGE value=":wrench: 설정파일 추가" />
+    <MESSAGE value=":seeding: PR 템플릿 복원 파일추가" />
+    <MESSAGE value=":test_tube: 컨트롤러 테스트 코드 추가" />
+    <MESSAGE value=":test_tube: 테스트 코드에 로깅을위한 Watcher 추가" />
+    <MESSAGE value=":test_tube: 테스트 코드 Watcher 어노테이션 사용" />
+    <MESSAGE value=":fire: Revert 시 삭제된 파일 복구" />
+    <MESSAGE value=":memo: 주석추가" />
+    <option name="LAST_COMMIT_MESSAGE" value=":memo: 주석추가" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
