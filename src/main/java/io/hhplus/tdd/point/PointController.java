@@ -72,6 +72,7 @@ public class PointController {
      * TODO: 비동기 처리 고려 (@Async)
      */
     @PatchMapping("{id}/charge")
+    //put과 patch 차이 :PUT은 전체 리소스를 교체하는 반면, PATCH는 리소스의 일부를 수정함
     public UserPoint charge(
             @PathVariable long id,
             @RequestBody long amount  // TODO: DTO로 변경 예정
