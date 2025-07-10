@@ -40,7 +40,8 @@ public class PointService {
      * TODO: 페이징 처리를 해야 할 것 같은데... 일단 전체 조회로 구현
      */
     public List<PointHistory> getPointHistoryById(Long userId) {
-        // 기본 검증
+        // 기본 검증 
+        // TODO : 중복된 검증로직을 리팩토링필요
         if (userId == null || userId <= 0) {
             throw new IllegalArgumentException("올바른 사용자 ID를 입력해주세요.");
         }
@@ -96,7 +97,7 @@ public class PointService {
     /**
      * 포인트 사용
      * 적용 정책: PLC_PNT_003, PLC_PNT_004, PLC_PNT_005
-     * TODO: 본인인증 로직은 어떻게 구현하지? 외부 API 호출?
+     * TODO: 본인인증 로직은 어떻게 구현하지? 외부 API 호출? > 현재는 고려대상아님.
      */
     public UserPoint usePoint(Long userId, Long amount) {
         // 기본 검증
@@ -154,7 +155,7 @@ public class PointService {
      * - 짧은 시간 내 반복 충전 체크
      */
     private boolean isIllegalChargeDetected(Long userId, Long amount) {
-        // 과제용 간단 구현: 10초 내 동일 금액 충전 시 부정 충전으로 판단
+        // 과제용 간단 구현: 10초 내 동일 금액 충전 시 부정 충전으로 판단 > 시간을 얼마로해야하지..?
         List<PointHistory> recentCharges = pointHistoryTable.selectAllByUserId(userId);
         long currentTime = System.currentTimeMillis();
         

@@ -21,12 +21,12 @@ public class PointController {
     // TODO: 생성자 주입 vs 필드 주입 vs 세터 주입 중에 고민
     // 생성자 주입을 선택한 이유: 1) 불변성 보장 2) 테스트 용이성 3) 필수 의존성 명시
     public PointController(PointService pointService) {
+
         this.pointService = pointService;
     }
 
     /**
      * 특정 유저의 포인트를 조회하는 기능
-     * TODO: 캐싱 적용하면 성능 향상될 듯 (@Cacheable)
      * TODO: 응답 형태를 ResponseEntity로 감싸는 게 좋을까?
      */
     @GetMapping("{id}")
@@ -69,7 +69,6 @@ public class PointController {
     /**
      * 특정 유저의 포인트를 충전하는 기능
      * TODO: 요청 DTO 클래스 만들어서 validation 추가 (@Valid, @NotNull 등)
-     * TODO: 비동기 처리 고려 (@Async)
      */
     @PatchMapping("{id}/charge")
     //put과 patch 차이 :PUT은 전체 리소스를 교체하는 반면, PATCH는 리소스의 일부를 수정함
@@ -92,8 +91,7 @@ public class PointController {
 
     /**
      * 특정 유저의 포인트를 사용하는 기능
-     * TODO: 사용 목적, 상품 정보 등 추가 정보 받아야 할 듯
-     * TODO: 트랜잭션 처리 강화 (@Transactional)
+     * TODO: 사용 목적, 상품 정보 등 추가 정보를 받으면 좋을듯.
      */
     @PatchMapping("{id}/use")
     public UserPoint use(
